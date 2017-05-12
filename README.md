@@ -26,3 +26,17 @@ nodeppt start -p <port>
 ```bash
 nodeppt start -p 8090 -d ./demo
 ```
+
+
+### 导出ppt
+
+#### html版
+
+```bash
+# 导出全部，包括nodeppt的js、img和css文件夹
+# 默认导出在publish文件夹
+nodeppt generate ./ppt/demo.md -a
+# 指定导出文件夹
+nodeppt generate ./ppt/demo.md output/path -a
+```
+
