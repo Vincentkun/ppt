@@ -97,14 +97,16 @@ Flexible Box的缩写，意为"弹性布局"，
 
 
 [slide]
-##容器的属性 &#91;6个&#93;
+##容器的属性 &#91;**6个**&#93;
 ---
-* flex-direction
-* flex-wrap
-* flex-flow
-* justify-content
-* align-items
-* align-content
+* <span class="green">flex-direction</span>
+* <span class="green">flex-wrap</span>
+* <span class="green3">flex-flow</span>
+* <span class="blue">justify-content</span>
+* <span class="blue">align-items</span>
+* <span class="yellow">align-content</span>
+
+
 
 [slide]
 ##(A1) flex-direction 
@@ -332,7 +334,7 @@ Flexible Box的缩写，意为"弹性布局"，
 
 
 [slide]
-##项目的属性 &#91;**6**个&#93;
+##项目的属性 &#91;**6个**&#93;
 ---
 * <span class="blue">order</span>
 * <span class="green2">flex-grow</span>
@@ -349,7 +351,7 @@ Flexible Box的缩写，意为"弹性布局"，
 <pre>
     <code class="css pl30">
     .item {
-        order: <integer>;
+        order: 1;
     }
     </code>
 </pre>
@@ -386,13 +388,13 @@ Flexible Box的缩写，意为"弹性布局"，
 
 [slide]
 ##(B2) flex-grow 
-###「项目属性」定义项目的放大比例，默认为0
+###「项目属性」定义项目的放大比例
 ---
-#### [**即如果存在剩余空间，也不放大**]
+#### [**默认为0,即如果存在剩余空间，也不放大**]
 <pre>
     <code class="css pl25">
     .item {
-        flex-grow: <number>; /* default 0 */
+        flex-grow: 1; /* default 0 */
     }
     </code>
 </pre>
