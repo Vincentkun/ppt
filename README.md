@@ -28,6 +28,19 @@ nodeppt start -p 8090 -d ./demo
 ```
 
 
+### 创建ppt
+支持markdown语法快速创建网页幻灯片(默认:markdown)
+```bash
+nodeppt create ppt-name
+```
+如果需要创建html版本，可以使用：
+```bash
+nodeppt create ppt-name.html
+# or
+nodeppt create ppt-name.htm
+```
+
+
 ### 导出ppt
 
 #### html版
@@ -40,3 +53,4 @@ nodeppt generate ./ppt/demo.md -a
 nodeppt generate ./ppt/demo.md output/path -a
 ```
 
+参考 [nodeppt](https://github.com/ksky521/nodePPT "nodeppt")
