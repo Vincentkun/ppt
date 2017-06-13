@@ -1,8 +1,10 @@
-title: small-app-52dianying
-speaker: Kun
-url: https://github.com/ksky521/nodePPT
-transition: cards
-files: /js/demo.js,/css/demo.css
+title: flex
+speaker: kun
+transition: slide3
+theme: dark
+usemathjax: yes
+files: /css/style.css
+
 
 [slide]
 
