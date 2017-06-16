@@ -79,12 +79,16 @@ Flexible Box的缩写，意为"弹性布局"，
 
 >  注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。
 
-
 [slide]
 * 采用Flex布局的元素，称为Flex容器，简称"容器"
 * 它的所有子元素自动成为容器成员，称为Flex项目，简称"项目"
 ---
 <img class="br10" src="/img/css09.png">
+
+[slide]
+
+> flex布局发生在`父容器`和`子容器`之间。父容器需要有flex的环境(display:flex;)，子容器才能根据自身的属性来布局，简单的说，就是瓜分父容器的空间。相反就是说如果父容器没有flex的环境，那么子容器就无法使用flex的规则来划分父容器的空间。
+
 
 [slide]
 * 水平的主轴main axis和垂直的交叉轴（cross axis）
