@@ -342,8 +342,8 @@ Flexible Box的缩写，意为"弹性布局"，
 ---
 * <span class="blue">order</span>
 * <span class="green2">flex-grow</span>
-* <span class="green2">flex-shrink</span>
 * <span class="green2">flex-basis</span>
+* <span class="green2">flex-shrink</span>
 * <span class="text-success">flex</span>
 * <span class="yellow">align-self</span>
 
@@ -394,11 +394,11 @@ Flexible Box的缩写，意为"弹性布局"，
 ##(B2) flex-grow 
 ###「项目属性」定义项目的放大比例
 ---
-#### [**默认为0,即如果存在剩余空间，也不放大**]
+#### [**默认为0,即如果存在剩余空间，也不瓜分**]
 <pre>
     <code class="css pl25">
     .item {
-        flex-grow: 1; /* default 0 */
+        flex-grow: 0; /* default 0 */
     }
     </code>
 </pre>
@@ -421,37 +421,8 @@ Flexible Box的缩写，意为"弹性布局"，
 ---
 [demo](https://codepen.io/Frank_/pen/EmEPQm?editors=1100)
 
-
 [slide]
-##(B3) flex-shrink 
-###「项目属性」定义了项目的缩小比例，默认为1
----
-#### [**即如果空间不足，该项目将缩小**]
-<pre>
-    <code class="css pl25">
-    .item {
-        flex-shrink: 1; /* default 1 */
-    }
-    </code>
-</pre>
-
-[slide]
-### flex-shrink Demo
----
-#### [**不太好理解 我们通过案例来解释**]
-<pre>
-    <code class="css pl10">
-    .item {
-        flex-grow: 1; /* default 0 */
-    }
-    </code>
-</pre>
----
-[demo](https://codepen.io/Frank_/pen/LydNrv?editors=1100)
-
-
-[slide]
-##(B4) flex-basis 
+##(B3) flex-basis 
 ###「项目属性」定义了在分配多余空间之前，项目占据的主轴空间（main size）
 
 ### [**浏览器根据这个属性，计算主轴是否有多余空间**]
@@ -478,6 +449,35 @@ Flexible Box的缩写，意为"弹性布局"，
 </pre>
 ---
 [demo](https://codepen.io/Frank_/pen/VbXjxm?editors=1100)
+
+
+
+[slide]
+##(B4) flex-shrink 
+###「项目属性」定义了项目的缩小比例，默认为1
+---
+#### [**即如果空间不足，该项目将缩小**]
+<pre>
+    <code class="css pl25">
+    .item {
+        flex-shrink: 1; /* default 1 */
+    }
+    </code>
+</pre>
+
+[slide]
+### flex-shrink Demo
+---
+#### [**不太好理解 我们通过案例来解释**]
+<pre>
+    <code class="css pl10">
+    .item {
+        flex-grow: 1; /* default 0 */
+    }
+    </code>
+</pre>
+---
+[demo](https://codepen.io/Frank_/pen/LydNrv?editors=1100)
 
 
 [slide]
