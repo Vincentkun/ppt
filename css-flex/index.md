@@ -450,6 +450,9 @@ Flexible Box的缩写，意为"弹性布局"，
 ---
 [demo](https://codepen.io/Frank_/pen/VbXjxm?editors=1100)
 
+[slide]
+
+> 上面讲的<span class="green">flex-grow</span>、<span class="green">flex-basis</span>都是剩余空间的分配。但是，你有没有想过还有没有其他的情况呢？可以发现，上面讲的例子item1 item2 item3的宽度总和都是`没有超过`父容器的宽度的。 那如果三个子容器的`宽度和超过`父容器的宽度呢？那还有剩余空间可以分配吗，此时浏览器又是怎么处理呢？请看下面：
 
 
 [slide]
