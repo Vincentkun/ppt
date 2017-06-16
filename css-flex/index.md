@@ -603,8 +603,8 @@ Flexible Box的缩写，意为"弹性布局"，
 
 * order
 * flex-grow
-* flex-shrink
 * flex-basis
+* flex-shrink
 * flex
 * align-self
 </code>
