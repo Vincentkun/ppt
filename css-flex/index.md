@@ -614,10 +614,11 @@ Flexible Box的缩写，意为"弹性布局"，
 
 [slide]
 ## <span class="yellow3">参考资料</span>
-http://www.oxxostudio.tw/articles/201501/css-flexbox.html
-http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes
+
++ http://www.oxxostudio.tw/articles/201501/css-flexbox.html
++ http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
++ https://css-tricks.com/snippets/css/a-guide-to-flexbox/
++ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes
 
 [slide]
 #完
