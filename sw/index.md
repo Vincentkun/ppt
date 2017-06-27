@@ -1,15 +1,12 @@
 title: service worker
 speaker: Kun
-url: https://github.com/ksky521/nodePPT
 transition: cards
-files: /js/demo.js,/css/demo.css
+files: /css/style.css
 
 [slide]
 
 # service worker
 ## 演讲者：Kun
-
-
 
 [slide]
 
@@ -34,32 +31,23 @@ service worker是一段脚本，与web worker一样，也是在后台运行。�
 
 > 先来看一下一个service worker的运行周期
 
-<img class="br10" src="/img/css12.png">
+<img class="br10" src="/img/01.png">
 
-
-[slide]
-
-# 封面样式2 {:&.flexbox.vleft}
-## 左对齐
-
-[slide style="background-image:url('/img/bg1.png')"]
-
-## 使用背景
-
-[slide]
-## 使用.class/#id/自定义属性样式
-----
-
-```javascript
-alert('nodeppt');
-```
+[生命周期](http://www.html5rocks.com/en/tutorials/service-worker/introduction/)
 
 [slide]
 
-## 主页面样式
-### ----是上下分界线
-----
 
-nodeppt是基于nodejs写的支持 **Markdown!** 语法的网页PPT，当前版本：1.4.2
 
-Github：https://github.com/ksky521/nodePPT
+
+
+
+
+
+
+
+
+
+
+
+
