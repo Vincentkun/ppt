@@ -37,6 +37,8 @@ service worker是一段脚本，与web worker一样，也是在后台运行。�
 
 [slide]
 
+[进程与线程](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+
 
 
 

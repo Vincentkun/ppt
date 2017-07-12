@@ -3,13 +3,13 @@ speaker: kun
 transition: slide3
 theme: dark
 usemathjax: yes
-files: /css/style.css
+files: /css/style.css, /css/theme.dark.css
 
 
 [slide]
 
-# small-app-52dianying
-## 演讲者：Kun
+# 微信小程序
+## By：Kun
 
 [slide]
 
