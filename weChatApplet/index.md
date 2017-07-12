@@ -1,4 +1,4 @@
-title: flex
+title: 微信小程序介绍
 speaker: kun
 transition: slide3
 theme: dark
@@ -89,6 +89,100 @@ onUnload: 页面卸载
         </code>
     </pre>
 </div>
+
+[slide]
+
+# 场景值
+
+[slide]
+
+# 页面路由
+
+
+[slide]
+
+# 页面通信
+
+* onShow/onHide + localStorage
+* onShow/onHide + globalData
+* eventBus方式
+* globalData watcher方式
+* 直接缓存页面PageModel
+
+[slide]
+
+# 组件
+
+* 视图容器
+* 基础内容
+* 表单组件
+* 导航
+* 媒体组件
+* 地图
+* 画布
+* 客服会话
+
+map、canvas、video、textarea 是由客户端创建的原生组件，原生组件的层级是最高的，所以页面中的其他组件无论设置 z-index 为多少，都无法盖在原生组件上。 原生组件暂时还无法放在 scroll-view 上，也无法对原生组件设置 css 动画
+
+[slide]
+
+# websocket
+
+
+[slide]
+
+# 动画
+
+* css animation
+* wx.createAnimation
+
+[slide]
+
+# 客服
+
+* <contact-button/>
+* <button open-type="contact“>
+* 调用客服消息接口发送客服消息
+* 网页版客服工具
+
+[slide]
+
+# 实现原理
+
+
+[slide]
+
+# ES6支持
+
+微信小程序运行在三端：iOS、Android 和 用于调试的开发者工具
+在 iOS 上，小程序的 javascript 代码是运行在 JavaScriptCore 中
+在 Android 上，小程序的 javascript 代码是通过 X5 内核来解析
+在 开发工具上， 小程序的 javascript 代码是运行在 nwjs（chrome内核） 中
+虽然尽管三端的环境是十分相似的，但是至少在目前还是有一些区别的，这给很多开发者带来很大的困扰。
+在 0.10.101000 以及之后版本的开发工具中，会默认使用 babel 将开发者代码 ES6 语法转换为三端都能很好支持的 ES5 的代码，帮助开发者解决环境不同所带来的开发问题。开发者可以在项目设置中关闭这个功能。
+需要注意的是：
+这种转换只会帮助开发处理语法上问题，新的 ES6 的 API 例如 Promise 等需要开发者自行引入 Polyfill 或者别的类库。
+为了提高代码质量，在开启 ES6 转换功能的情况下，默认启用 javasctipt 严格模式
+
+[slide]
+
+# 总结
+
+优点：
+相对简单的技术，封装完善的开发框架和开发工具，远低于原生的开发成本
+相比与 web 技术更容易实现优质的用户体验
+基于微信庞大的用户群，相比于原生 app 更容易推广
+支持扫码即用，不像app一样需要下载安装
+
+缺点：
+功能受限
+性能问题
+安全问题
+自动化测试
+坑比较多
+
+
+
 
 [slide]
 # 封面样式2 {:&.flexbox.vleft}
