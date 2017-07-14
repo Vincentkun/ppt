@@ -1,6 +1,7 @@
 title: 微信小程序介绍
 speaker: kun
-transition: slide3
+<!-- zoomin  move stick zoomout -->
+transition: move
 theme: dark
 usemathjax: yes
 files: /css/style.css, /css/theme.dark.css
@@ -17,11 +18,11 @@ files: /css/style.css, /css/theme.dark.css
 
 微信小程序是一种全新的连接用户与服务的方式，它可以在微信内被便捷地获取和传播，同时具有出色的使用体验。不需要下载安装即可使用
 
-[slide]
+[slide data-transition="newspaper"]
 
 # 开发流程 {:&.flexbox.vleft}
 
-* 申请账号：个人、企业、政府、媒体等
+* 申请账号：个人、企业、政府、媒体等 {:&.moveIn}
 * 下载开发者工具
 * 开发、测试
 * 上传代码
