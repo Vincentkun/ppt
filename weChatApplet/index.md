@@ -62,6 +62,33 @@ files: /css/style.css, /css/theme.dark.css
 ## 认证详情
 <img class="br10" src="/img/08.jpg">
 
+[slide data-transition="zoomout"]
+## 绑定开发者
+<img class="br10" src="/img/09.jpg">
+
+[slide data-transition="zoomout"]
+## 获取AppID
+<img class="br10" src="/img/10.jpg">
+
+[slide]
+## 开发者工具 --> 登录
+<img class="br10" style="width:50%" src="/img/11.png">
+
+
+[slide]
+## 创建项目
+<div class="columns2">
+    <img class="br10" style="max-width: 450px !important;" src="/img/12.png">
+    <img class="br10" style="max-width: 450px !important;" src="/img/13.png">
+</div>
+
+[slide]
+## 开发界面
+<img class="br10" src="/img/14.png">
+
+[slide]
+dev: __52dianying__
+<img class="br10" src="/img/15.jpg">
 
 [slide]
 
