@@ -13,21 +13,51 @@ files: /css/style.css, /css/theme.dark.css
 ## By：Kun
 
 [slide]
+<img class="br10" src="/img/01.jpg">
+
+
+[slide data-transition="zoomout"]
 
 # 简介 {:&.flexbox.vleft}
 
 微信小程序是一种全新的连接用户与服务的方式，它可以在微信内被便捷地获取和传播，同时具有出色的使用体验。不需要下载安装即可使用
 
+[slide data-transition="zoomout"]
+<img class="br10" src="/img/02.jpeg">
+<img class="br10 ml10" src="/img/03.jpeg">
+
 [slide data-transition="newspaper"]
 
 # 开发流程 {:&.flexbox.vleft}
 
-* 申请账号：个人、企业、政府、媒体等 {:&.moveIn}
+* 申请账号：个人、企业、政府、媒体等
 * 下载开发者工具
 * 开发、测试
 * 上传代码
 * 提交审核
 * 发布
+
+[slide]
+## 申请账号：个人、企业、政府、媒体等
+
+> 在微信公众平台官网首页点击右上角的“立即注册”按钮
+
+<img class="br10" src="/img/04.png">
+
+[mp.weixin.qq.com](https://mp.weixin.qq.com/)
+
+[slide]
+<img class="br10" src="/img/05.png">
+
+[slide]
+<img class="br10" src="/img/06.jpg">
+
+[slide]
+<img class="br10" src="/img/07.png">
+
+[slide]
+<img class="br10" src="/img/08.jpg">
+
 
 [slide]
 
