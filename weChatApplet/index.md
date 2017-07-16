@@ -46,16 +46,20 @@ files: /css/style.css, /css/theme.dark.css
 
 [mp.weixin.qq.com](https://mp.weixin.qq.com/)
 
-[slide]
+[slide data-transition="stick"]
+## 主体类型
 <img class="br10" src="/img/05.png">
 
-[slide]
+[slide data-transition="stick"]
+### 企业类型 `认证费`（300）
 <img class="br10" src="/img/06.jpg">
 
-[slide]
+[slide data-transition="stick"]
+## 主体信息不可变更
 <img class="br10" src="/img/07.png">
 
-[slide]
+[slide data-transition="stick"]
+## 认证详情
 <img class="br10" src="/img/08.jpg">
 
 
