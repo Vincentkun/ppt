@@ -87,21 +87,21 @@ files: /css/style.css, /css/theme.dark.css
 <img class="br10" src="/img/14.png">
 
 [slide]
+
+# 工程架构 {:&.flexbox.vleft}
+
+* <span class="gray">.json 配置文件</span>
+* <span class="green">.js 页面逻辑 (model,controller)</span>
+* <span class="blue">.wxml 页面内容 (view)</span>
+* <span class="yellow">.wxss 展现样式</span>
+
+[slide]
 dev: __52dianying__
 <img class="br10" src="/img/15.jpg">
 
 [slide]
 
-# 工程架构 {:&.flexbox.vleft}
-
-* .json 配置文件
-* .js 页面逻辑 (model,controller)
-* .wxml 页面内容 (view)
-* .wxss 展现样式
-
-[slide]
-
-# 页面声明周期
+# 页面生命周期
 
 onLoad: 页面加载
   一个页面只会调用一次。
@@ -112,7 +112,6 @@ onShow: 页面显示
  
 onReady: 页面初次渲染完成
   一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。
- 
  
 onHide: 页面隐藏
   当navigateTo或底部tab切换时调用。
@@ -147,10 +146,19 @@ onUnload: 页面卸载
     </pre>
     <pre>
         <code class="markdown">
-            2
+            <a target="_blank" href="http://files.jb51.net/file_images/article/201701/2017011916060712.png"><img class="br10" src="/img/lifetime_01.png"></a>
         </code>
     </pre>
 </div>
+
+
+[slide]
+
+<img class="br10" src="/img/html5_wapp_diff.png">
+
+[slide]
+
+<img class="br10" src="/img/lifetime_01.png">
 
 [slide]
 
