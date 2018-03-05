@@ -1,0 +1,614 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>grid - By kun</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>CSS3 Grid</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<img class="br10" src="./img/c01.jpg">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>css布局： <span class="yellow">Table</span> <strong>-&gt;</strong> <span class="blue">Float + Position </span><strong>--&gt;</strong> <span class="green">Flex</span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>CSS Grid(网格) 布局（又称为 “Grid(网格)” ），<br>
+是一个<code>二维</code>的基于网格的布局系统.<br>
+它的目标是完全改变我们基于网格的用户界面的布局方式。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>CSS Grid布局是目前CSS 中最强大的布局系统。<br>
+与 <strong>flexbox</strong> 的一维布局系统不同，<br>
+CSS Grid 布局是一个二维布局系统，<br>
+也就意味着它可以同时处理<code>列和行</code>。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>通过将 CSS 规则应用于 <br>
+<strong>父元素</strong> (成为 Grid Container 网格容器)<br>
+及 <strong>子元素</strong>（成为 Grid Items 网格项），<br>
+你就可以轻松使用 Grid(网格) 布局。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>浏览器支持<a href="https://caniuse.com/#feat=css-grid" target="_blank">caniuse</a></h3>
+<img class="br10" src="./img/c02.jpg">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>重要术语</h2>
+<ul>
+<li>网格容器(Grid Container)</li>
+<li>网格项(Grid Item)</li>
+<li>网格线(Grid Line)</li>
+<li>网格轨道(Grid Track)</li>
+<li>网格单元格(Grid Cell)</li>
+<li>网格区域(Grid Area)</li>
+<li>Grid(网格) 属性目录</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格容器</h2>
+<p>Grid Container: 应用 display: grid 的元素。<br>
+这是所有网格项（Grid Items）的直接父级元素。</p>
+<pre><code class="html">## 在这个例子中，container 就是 网格容器(Grid Container) ##
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;item item-1&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item item-2&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;item item-3&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格项</h2>
+<p>Grid Item: 网格容器（Grid Container）的子元素。<br>
+<strong>（例如直接子元素）</strong></p>
+<pre><code class="html">/** 注意 item 元素就是网格项(Grid Item)
+    但是 sub-item 不是。 **/
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt; 
+        &lt;div class=&quot;item&quot;&gt;
+            &lt;p class=&quot;sub-item&quot;&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;item&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格线</h2>
+<p>Grid Line: 构成网格结构的分界线。<br>
+它们既可以是垂直的（“列网格线(column grid lines)”）<br> 
+也可以是水平的（“行网格线(row grid lines)”）<br>
+并位于行或列的任一侧</p>
+<pre><code class="html">例如，这里的黄线就是一条列网格线
+</code></pre>
+<img class="br10" src="./img/c03.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格轨道</h2>
+<p>Grid Track: 两条相邻网格线之间的空间。<br>
+你可以把它们想象成网格的列或行</p>
+<pre><code class="html">图是第二条和第三条 行网格线 之间的 网格轨道。
+</code></pre>
+<img class="br10" src="./img/c04.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格单元格</h2>
+<p>Grid Cell: 两个相邻的行和两个相邻的列网格线之间的空间。<br>
+这是 Grid(网格) 系统的一个“单元”。</p>
+<pre><code class="html">图第1至第2条 行网格线 和第2至第3条 列网格线 交汇构成的 网格单元格
+</code></pre>
+<img class="br10" src="./img/c05.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格区域</h2>
+<p>Grid Area: 4条网格线包围的总空间。<br>
+一个网格区域可以由任意数量的网格单元格组成。</p>
+<pre><code class="html">图是 行网格线1和3，以及列网格线1和3 之间的网格区域。
+</code></pre>
+<img class="br10" src="./img/c06.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>Grid(网格) 属性目录</h2>
+<p><strong>容器的属性</strong> &#91;16个&#93;</p>
+<pre><code class="css">* display
+* grid-template-columns
+* grid-template-rows
+* grid-template-areas
+* grid-template
+* grid-column-gap
+* grid-row-gap
+* grid-gap
+* justify-items
+* align-items
+* justify-content
+* align-content
+* grid-auto-columns
+* grid-auto-rows
+* grid-auto-flow
+* grid
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>Grid(网格) 属性目录</h2>
+<p><strong>网格项的属性</strong> &#91;9个&#93; </p>
+<pre><code class="css">* grid-column-start
+* grid-column-end
+* grid-row-start
+* grid-row-end
+* grid-column
+* grid-row
+* grid-area
+* justify-self
+* align-self
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>display</h2>
+<pre><code class="css">.container {
+    display: grid | inline-grid | subgrid;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>父元素 网格容器 属性 <strong>display</strong> <br></h2>
+<blockquote>
+<p>将元素定义为网格容器,并为其内容建立新的 网格格式上下文。</p>
+</blockquote>
+<ul>
+<li><span class="green">grid</span> ：生成一个块级网格</li>
+<li><span class="green">inline-grid</span> ：生成一个内联网格</li>
+<li><span class="green">subgrid</span> ：嵌套网格<pre><code class="html">subgrid:你希望它的行/列的大小继承自它的父级网格容器，而不是自己指定的。
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>column &amp;&amp; row</h2>
+<ul>
+<li>grid-template-column<span class="green">(列)</span></li>
+<li>grid-template-row<span class="green">(行)</span></li>
+</ul>
+<pre><code class="html">column: 指定的每个值来创建每列的列宽
+row: 指定的每个值可以创建每行的高度
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/oEmEBX?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>minmax()</h2>
+<p>函数来创建网格轨道的最小或最大尺寸</p>
+<pre><code class="html">minmax()函数接受两个参数：
+    第一个参数定义网格轨道的最小值，
+    第二个参数定义网格轨道的最大值。
+    可以接受任何长度值，也接受auto值。
+    auto值允许网格轨道基于内容的尺寸拉伸或挤压。
+</code></pre>
+<pre><code class="css">grid-template-rows: minmax(100px, auto); 
+grid-template-columns: minmax(auto, 50%) 1fr 3em;
+</code></pre>
+<blockquote>
+<p>在这个示例中，第一行的高度最小值是100px，但其最大值为auto，允许行高可以变大超过100px。</p>
+</blockquote>
+<p><a href="https://codepen.io/Frank_/pen/ZrwRjZ?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>repeat() 重复网格轨道</h2>
+<p>使用repeat()可以创建重复的网格轨道。</p>
+<blockquote>
+<p>这个适用于创建相等尺寸的网格项目和多个网格项目。</p>
+</blockquote>
+<pre><code class="css">grid-template-columns: 60px repeat(2, 1fr);
+grid-template-rows: repeat(2, 60px);
+</code></pre>
+<pre><code class="html">也接受两个参数：
+第一个参数定义网格轨道应该重复的次数;
+第二个参数定义每个轨道的尺寸。
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/ZrwRjZ?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>grid-gap 间距</h2>
+<p>只能创建列与列或行与行之间的间距</p>
+<blockquote>
+<p>但不能创建列和行与网格容器边缘的间距</p>
+</blockquote>
+<pre><code class="css">// 行间距 20px
+// grid-row-gap: 20px;
+// 列间距 5rem
+// grid-column-gap: 5rem;
+
+#第一个值是设置grid-row-gap的值#
+#第二个值设置grid-column-gap的值#
+  grid-gap: 50px 1em;
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/yvwpLe?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>通过网格线号码来定位网格项目</h2>
+<pre><code class="html">网格线实际上是代表线的开始、结束，
+两者之间就是网格列或行。
+</code></pre>
+<blockquote>
+<p>每条线是从网格轨道开始，网格的网格线从1开始，每条网格线逐步增加1</p>
+</blockquote>
+<p><br>
+<img class="br10" src="./img/c08.png"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格线号</h2>
+<img class="br10" src="./img/c07.jpg">
+<p><a href="https://codepen.io/Frank_/pen/jZJZZz?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格线号</h2>
+<pre><code class="css">grid-row-start: 2;
+grid-row-end: 3;
+grid-column-start: 2;
+grid-column-end: 3;
+</code></pre>
+<pre><code class="html">两列三行的网格创建三条列网格线和四条行网格线。
+item1就是由行和列的号码重新定位。
+----------------------------
+如果一个网格项目跨度只有一行或一列，
+那么grid-row-end和grid-column-end不是必需的。
+</code></pre>
+<img class="br10" src="./img/c09.jpg">
+<p><a href="https://codepen.io/Frank_/pen/jZJZZz?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格</h2>
+<p>简写: 两个值</p>
+<pre><code class="html">grid-row是grid-row-start和grid-row-end的简写。
+grid-column是grid-column-start和grid-column-end的简写。
+</code></pre>
+<pre><code class="csss">grid-row: 2;
+grid-column: 3 / 4;
+</code></pre>
+<pre><code class="html">如果提供两个值，
+第一个值是grid-row-start、grid-column-start的值，
+第二个值是grid-row-end、grid-column-end的值，
+两者之间必须要用/隔开。
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/jZJZZz?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格</h2>
+<p>简写: 四个值</p>
+<pre><code class="css">grid-area: 2 / 2 / 3 / 3;
+</code></pre>
+<pre><code class="html">如果指定四个值:
+第一个值对应grid-row-start，
+第二个值对应grid-column-start，
+第三个值对应grid-row-end
+第四个值对应grid-column-end
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/jZJZZz?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格项目跨行或跨列</h2>
+<blockquote>
+<p>默认情况下网格项目跨度只有一个列和行，但可以跨越多个行和列</p>
+</blockquote>
+<pre><code class="css">grid-column-start: 1;
+grid-column-end: 4;
+</code></pre>
+<pre><code class="html">可以通过设置grid-column-end和grid-column-start距离多个网络线号实现多个列跨越。
+</code></pre>
+<img class="br10" src="./img/c10.jpg">
+<p><a href="https://codepen.io/Frank_/pen/RQdywY?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格项目跨行或跨列</h2>
+<pre><code class="css">grid-row-start: 1;
+grid-row-end: 5;
+</code></pre>
+<pre><code class="html">同样的可以通过grid-row-end和grid-row-start距离多个网格号实现多个行跨越。
+</code></pre>
+<img class="br10" src="./img/c11.jpg">
+<p><a href="https://codepen.io/Frank_/pen/RQdywY?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格项目跨行或跨列</h2>
+<blockquote>
+<p>合并 span</p>
+<p>关键词span后面紧随数字，表示合并多少个列或行。</p>
+</blockquote>
+<pre><code class="css">grid-row: 2 / span 2;
+grid-column: span 2;
+</code></pre>
+<img class="br10" src="./img/c12.jpg">
+<p><a href="https://codepen.io/Frank_/pen/RQdywY?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>网格线命名</h2>
+<ul>
+<li>定义网格时，网格线可以被命名。</li>
+<li>网格线名称也可以设置网格项目位置。</li>
+</ul>
+<pre><code class="css">grid-template-rows:    [row-1-start] 1fr [row-2-start] 1fr [row-2-end];
+grid-template-columns: [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+</code></pre>
+<pre><code class="html">grid-template-rows和grid-template-columns定义你的网格，将名称分配给网格线。
+分配网格线名称必须用方括号[网格线名称]，
+然后后面紧跟网格轨道的尺寸值。
+</code></pre>
+<img class="br10" src="./img/c13.png">
+<p><a href="https://codepen.io/Frank_/pen/LQarGv?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="html">可以在方括号中添加多个名称来命名网格线名称，
+使用多外名称命名网格线名称时，
+名称间要用空格隔开。
+</code></pre>
+<pre><code class="css">grid-template-rows:    [row-start row-1-start] 1fr [row-1-end row-2-start] 1fr [row-2-end row-end];
+grid-template-columns: [col-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-end];
+</code></pre>
+<p><img class="br10" src="./img/c14.png"><br></p>
+<blockquote>
+<p>每一个网格线的名称可以用来定位网格项目的位置。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>通过网格线名称设置网格项目位置</h2>
+<pre><code class="html">使用网格线名称设置网格项目位置和使用网格线号码设置网格项目位置类似。
+</code></pre>
+<pre><code class="css">grid-row-start:    row-2-start;
+grid-row-end:      row-end;
+grid-column-start: col-2-start;
+grid-column-end:   col-end;
+</code></pre>
+<p><img class="br10" src="./img/c15.png"><br></p>
+<blockquote>
+<p>引用网格线名称的时候不应该带方括号</p>
+</blockquote>
+<p><a href="https://codepen.io/Frank_/pen/LQarGv?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="html">grid-row和grid-column简写属性也适用于网格线名称，也可以用来设置网格项目的位置。
+</code></pre>
+<pre><code class="css">grid-row:    row-2-start / row-end;
+grid-column: col-2-start / col-end;
+</code></pre>
+<img class="br10" src="./img/c16.png">
+<p><a href="https://codepen.io/Frank_/pen/LQarGv?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>使用相同的名称命名网格线和设置网格项目位置</h2>
+<pre><code class="html">使用repeat()函数可以给网格线分配相同的名称。
+这可以节省一定的时间。
+</code></pre>
+<pre><code class="css">grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
+grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="html">使用repeat()函数可以给网格线命名，
+这也导致多个网格线具有相同的网格线名称。
+~~~~~~~~~~~~~~~~~~~~~~
+相同网格线名称指定网格线的位置和名称，
+也且会自动在网格线名称后面添加对应的数字，
+使其网格线名称也是唯一的标识符。
+</code></pre>
+<img class="br10" src="./img/c17.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>使用相同的网格线名称可以设置网格项目的位置</h3>
+<pre><code class="css">grid-row: row-start 2 / row-end 3;
+grid-column: col-start / col-start 3;
+</code></pre>
+<blockquote>
+<p>网格线的名称和数字之间需要用空格分开。</p>
+</blockquote>
+<pre><code class="html">在这个示例中，
+item1放置位置是row-start第2条开始，至row-end的第3条结束，
+这用来设置item1在行的起始和结束位置；
+-------------------
+col-start的第1条开始，至col-start的第3条结束
+（col-start的第3条也对应的是col-end的第2条），
+用来设置item1在列的起始位置和结束位置。
+</code></pre>
+<img class="br10" src="./img/c18.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>通过网格区域命名和定位网格项目</h3>
+<pre><code class="html">像网格线名称一样，网格区域的名称也可以使用grid-template-areas属性来命名。
+引用网格区域名称也可以设置网格项目位置。
+</code></pre>
+<pre><code class="css">grid-template-areas: &quot;header header&quot;
+                     &quot;content sidebar&quot;
+                     &quot;footer footer&quot;;
+grid-template-rows:  150px 1fr 100px;
+grid-template-columns: 1fr 200px;
+</code></pre>
+<pre><code class="html">设置网格区域的名称应该放置在单引号或双引号内，每个名称由一个空格符分开。
+网格区域的名称，每组（单引号或双引号内的网格区域名称）定义了网格的一行，
+每个网格区域名称定义网格的一列。
+</code></pre>
+<img class="br10" src="./img/c19.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="html">grid-row-start、grid-row-end、
+grid-column-start和grid-column-end
+可以引用网格区域名称，用来设置网格项目位置。
+</code></pre>
+<pre><code class="css">grid-row-start:    header;
+grid-row-end:      header;
+grid-column-start: header;
+grid-column-end:   header;
+</code></pre>
+<img class="br10" src="./img/c20.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="css">grid-row:    footer;
+grid-column: footer;
+</code></pre>
+<pre><code class="html">简写的grid-row和grid-column也可以引用网格区域名称，
+设置网格项目的位置。
+</code></pre>
+<img class="br10" src="./img/c21.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="css">grid-area: sidebar;
+</code></pre>
+<pre><code class="html">grid-area简写属性也可以引用网格区域的名称来设置网格项目的位置。
+</code></pre>
+<img class="br10" src="./img/c22.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>隐式网格</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2><span class="yellow3">参考资料</span></h2>
+<ul>
+<li><a href="http://www.css88.com/archives/8510" target="_blank">http://www.css88.com/archives/8510</a></li>
+<li><a href="https://caniuse.com/#feat=css-grid" target="_blank">https://caniuse.com/#feat=css-grid</a></li>
+<li><a href="https://www.w3cplus.com/css/learncssgrid.html" target="_blank">https://www.w3cplus.com/css/learncssgrid.html</a></li>
+<li>yyy</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>完</h1>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<link rel="stylesheet" href="./css/style.css">
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
