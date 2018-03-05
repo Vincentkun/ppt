@@ -384,17 +384,172 @@ grid-column: span 2;
 [slide]
 ## 网格线命名
 
+* 定义网格时，网格线可以被命名。
+* 网格线名称也可以设置网格项目位置。
+
+```css
+grid-template-rows:    [row-1-start] 1fr [row-2-start] 1fr [row-2-end];
+grid-template-columns: [col-1-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-3-end];
+```
+```html
+grid-template-rows和grid-template-columns定义你的网格，将名称分配给网格线。
+分配网格线名称必须用方括号[网格线名称]，
+然后后面紧跟网格轨道的尺寸值。
+```
+<img class="br10" src="/img/c13.png">
+
+[demo](https://codepen.io/Frank_/pen/LQarGv?editors=1100)
+
+[slide]
+```html
+可以在方括号中添加多个名称来命名网格线名称，
+使用多外名称命名网格线名称时，
+名称间要用空格隔开。
+```
+```css
+grid-template-rows:    [row-start row-1-start] 1fr [row-1-end row-2-start] 1fr [row-2-end row-end];
+grid-template-columns: [col-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-end];
+```
+<img class="br10" src="/img/c14.png"><br>
+> 每一个网格线的名称可以用来定位网格项目的位置。
 
 
 
+[slide]
+## 通过网格线名称设置网格项目位置
+```html
+使用网格线名称设置网格项目位置和使用网格线号码设置网格项目位置类似。
+```
+```css
+grid-row-start:    row-2-start;
+grid-row-end:      row-end;
+grid-column-start: col-2-start;
+grid-column-end:   col-end;
+```
+<img class="br10" src="/img/c15.png"><br>
+> 引用网格线名称的时候不应该带方括号
+
+[demo](https://codepen.io/Frank_/pen/LQarGv?editors=1100)
+
+[slide]
+```html
+grid-row和grid-column简写属性也适用于网格线名称，也可以用来设置网格项目的位置。
+```
+```css
+grid-row:    row-2-start / row-end;
+grid-column: col-2-start / col-end;
+```
+<img class="br10" src="/img/c16.png">
+
+[demo](https://codepen.io/Frank_/pen/LQarGv?editors=1100)
+
+
+[slide]
+## 使用相同的名称命名网格线和设置网格项目位置
+```html
+使用repeat()函数可以给网格线分配相同的名称。
+这可以节省一定的时间。
+```
+```css
+grid-template-rows: repeat(3, [row-start] 1fr [row-end]);
+grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+```
+
+[slide]
+```html
+使用repeat()函数可以给网格线命名，
+这也导致多个网格线具有相同的网格线名称。
+~~~~~~~~~~~~~~~~~~~~~~
+相同网格线名称指定网格线的位置和名称，
+也且会自动在网格线名称后面添加对应的数字，
+使其网格线名称也是唯一的标识符。
+```
+<img class="br10" src="/img/c17.png">
+
+
+[slide]
+### 使用相同的网格线名称可以设置网格项目的位置
+```css
+grid-row: row-start 2 / row-end 3;
+grid-column: col-start / col-start 3;
+```
+> 网格线的名称和数字之间需要用空格分开。
+
+```html
+在这个示例中，
+item1放置位置是row-start第2条开始，至row-end的第3条结束，
+这用来设置item1在行的起始和结束位置；
+-------------------
+col-start的第1条开始，至col-start的第3条结束
+（col-start的第3条也对应的是col-end的第2条），
+用来设置item1在列的起始位置和结束位置。
+```
+<img class="br10" src="/img/c18.png">
 
 
 
+[slide]
+### 通过网格区域命名和定位网格项目
+```html
+像网格线名称一样，网格区域的名称也可以使用grid-template-areas属性来命名。
+引用网格区域名称也可以设置网格项目位置。
+```
+```css
+grid-template-areas: "header header"
+                     "content sidebar"
+                     "footer footer";
+grid-template-rows:  150px 1fr 100px;
+grid-template-columns: 1fr 200px;
+```
+```html
+设置网格区域的名称应该放置在单引号或双引号内，每个名称由一个空格符分开。
+网格区域的名称，每组（单引号或双引号内的网格区域名称）定义了网格的一行，
+每个网格区域名称定义网格的一列。
+```
+<img class="br10" src="/img/c19.png">
 
 
 
+[slide]
+```html
+grid-row-start、grid-row-end、
+grid-column-start和grid-column-end
+可以引用网格区域名称，用来设置网格项目位置。
+```
+```css
+grid-row-start:    header;
+grid-row-end:      header;
+grid-column-start: header;
+grid-column-end:   header;
+```
+<img class="br10" src="/img/c20.png">
 
 
+[slide]
+```css
+grid-row:    footer;
+grid-column: footer;
+```
+```html
+简写的grid-row和grid-column也可以引用网格区域名称，
+设置网格项目的位置。
+```
+<img class="br10" src="/img/c21.png">
+
+
+[slide]
+```css
+grid-area: sidebar;
+```
+```html
+grid-area简写属性也可以引用网格区域的名称来设置网格项目的位置。
+```
+<img class="br10" src="/img/c22.png">
+
+
+
+[slide]
+## 隐式网格
 
 
 
@@ -410,7 +565,7 @@ grid-column: span 2;
 
 + http://www.css88.com/archives/8510
 + https://caniuse.com/#feat=css-grid
-+ xxx
++ https://www.w3cplus.com/css/learncssgrid.html
 + yyy
 
 [slide]
