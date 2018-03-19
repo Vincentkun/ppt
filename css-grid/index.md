@@ -550,6 +550,186 @@ grid-area简写属性也可以引用网格区域的名称来设置网格项目�
 
 [slide]
 ## 隐式网格
+```html
+当网格项目确认在显式网格之外时就会创建隐性网格，
+当没有足够的空间或者显式的网格轨道来设置网格项目，
+此时网格项目就会自动创建隐式网格。
+```
+```html
+使用grid-auto-rows、
+grid-auto-columns和grid-auto-flow
+属性可以定义隐式的网格。
+```
+```css
+grid-template-rows:    70px;
+grid-template-columns: repeat(2, 1fr);
+grid-auto-rows:        140px;
+```
+
+
+[slide]
+<img class="br10" src="/img/c23.jpg">
+
+[slide]
+```css
+grid-template-rows:    70px;
+grid-template-columns: repeat(2, 1fr);
+grid-auto-rows:        140px;
+```
+```html
+在这个例子中我们只定义了一行（轨道），
+所以item1和item2的高都是70px。
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+第二行（轨道）自动创建了item3和item4空间。
+grid-auto-rows定义隐式网格中的行（轨道）的大小，
+因此item3和item4的高度是140px。
+```
+[demo1](https://codepen.io/Frank_/pen/ZxBoeV?editors=1100)
+
+
+
+[slide]
+### 网格默认流方向
+```css
+//网格默认流方向是row
+grid-auto-row: row
+```
+<img class="br10" src="/img/c24.jpg">
+
+[demo2](https://codepen.io/Frank_/pen/ZxBoeV?editors=1100)
+
+
+[slide]
+### 更改网格流方向
+```css
+//可以把网格流的方向改变成column
+grid-auto-flow: column
+```
+<img class="br10" src="/img/c25.jpg">
+
+[demo2](https://codepen.io/Frank_/pen/ZxBoeV?editors=1100)
+
+
+[slide]
+```css
+grid-template-columns: 100px 200px;
+grid-auto-flow:        column;
+grid-auto-columns:     1fr;
+```
+```html
+在这个例子中，我们只定义了前两列的轨道尺寸。
+item1的尺寸是100px，item2的尺寸是200px。
+-------------------------------------------
+使用grid-auto-flow:column自动创建了隐式网格，
+用来放置item3、item4和item5，
+并且这三个列（轨道）的尺寸由grid-auto-columns来定义。
+```
+<img class="br10" src="/img/c26.jpg">
+
+[demo3](https://codepen.io/Frank_/pen/ZxBoeV?editors=1100)
+
+
+[slide]
+### 隐式地命名网格区域名称
+```html
+通常可以将网格线命名成任何你想命名的名称，
+如果网格线名称添加-start和-end的后缀，
+其实也隐式的创建一个网格区域，可以用来设置网格项目的位置。
+```
+```css
+grid-template-rows:    [outer-start] 1fr [inner-start] 1fr [inner-end] 1fr [outer-end];
+grid-template-columns: [outer-start] 1fr [inner-start] 1fr [inner-end] 1fr [inner-end];
+```
+```html
+在这个示例中，
+行和列都具有inner-start和inner-end网格线名称，
+同时也对应的创建一个隐式网格区域名称inner。
+```
+
+[slide]
+<img class="br10" src="/img/c27.png">
+```css
+grid-area: inner
+```
+> 网格项目定位可以通过网格区域名称来设置，而不需要使用网格线名称。
+
+
+[slide]
+### 隐式命名网格线名称
+```html
+隐式的指定网格线反向指定了隐式的网格区域名称，
+命名的网格区域隐式的命名了网格线名称。
+```
+```css
+grid-template-areas:   "header header"
+                        "content sidebar"
+                        "footer footer";
+grid-template-rows:    80px 1fr 40px;
+grid-template-columns: 1fr 200px;
+```
+<img class="br10" src="/img/c28.png">
+
+[demo](https://codepen.io/Frank_/pen/vRyrOW?editors=1100)
+
+
+[slide]
+```css
+grid-row-start:    header-start;
+grid-row-end:      content-start;
+grid-column-start: footer-start;
+grid-column-end:   sidebar-end;
+```
+<img class="br10" src="/img/c29.png">
+
+> 在这个示例中,header通过隐式的网格线名称设置其位置。
+
+[slide]
+### 网格项目层级
+ 网格项目可以具有层级和堆栈，必要时可能通过z-index属性来指定
+
+```css
+.item-a,
+.item-b {
+    grid-row-start:  1;
+    grid-column-end: span 2;
+}
+.item-a { 
+    grid-column-start: 1; 
+    z-index: 1; 
+}
+.item-b1 { 
+    grid-column-start: 2;
+}
+```
+<img class="br10" src="/img/c30.jpg">
+
+[demo](https://codepen.io/Frank_/pen/PRbaeX?editors=1100)
+
+[slide]
+```html
+在这个例子中，itema和itemb的开始行都是1，
+item-a列的开始是1，
+item-b列的开始是2，
+并且它们都跨越两列。
+两个网格项目都是由网格线数字定位，结果这两个网格项目重叠了。
+```
+```html
+默认情况下，item-b在item1上面，
+但是，我们在item-a中设置了z-index:1;
+导致item-a在item-b之上。
+当然 ，我们可以设置item-b:z-index:2
+```
+<img class="br10" src="/img/c30.jpg">
+
+
+
+[slide]
+## 网格项目对齐方式（Box Alignment）
+
+
+
+
+
 
 
 
