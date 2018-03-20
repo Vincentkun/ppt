@@ -487,9 +487,78 @@ col-start的第1条开始，至col-start的第3条结束
 <img class="br10" src="/img/c18.png">
 
 
+[slide]
+### 通过网格区域命名和定位网格项目 （一）
+```html
+通过引用 grid-area 属性指定的 网格区域(Grid Area) 名称来定义网格模板。
+重复网格区域的名称导致内容跨越这些单元格。
+一个点号（.）代表一个空的网格单元。
+这个语法本身可视作网格的可视化结构。
+```
+```html
+<grid-area-name>：
+由网格项的 grid-area 指定的网格区域名称
+.（点号） ：代表一个空的网格单元
+none：不定义网格区域
+```
+```css
+.container {
+  grid-template-areas: 
+    " | . | none | ..."
+    "...";
+}
+```
+[slide]
+```css
+ .container {
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+.item-a {
+  grid-area: header;
+}
+.item-b {
+  grid-area: main;
+}
+.item-c {
+  grid-area: sidebar;
+}
+.item-d {
+  grid-area: footer;
+}
+```
+[slide]
+```html
+上面的代码将创建一个 4 列 3 行的网格。
+整个顶行将由 header 区域 组成。
+中间一排将由两个 main 区域，
+一个是空单元格，一个 sidebar 区域组成。
+最后一行全是 footer 区域组成。
+```
+<img class="br10" src="/img/c34.png">
+[slide]
+```html
+你的声明中的每一行都需要有相同数量的单元格。
+你可以使用任意数量的相邻的 点. 来声明单个空单元格。 
+只要这些点.之间没有空隙隔开，他们就表示一个单一的单元格。
+```
+```html
+注意你 [并非]用这个语法来命名网格线，只是命名网格区域。
+当你使用这种语法时，区域两端的网格线实际上是自动命名的。
+如果你的网格区域的名字是 foo，
+该区域的起始 行网格线 和起始 列网格线 的名称将是 foo-start，
+而最后一行 行网格线 和最后一列 列网格线 的名字是 foo-end。
+这意味着一些网格线可能有多个名字，
+如上例中最左边的网格线，它将有三个名称：header-start，main-start 和 footer-start 。
+```
+
 
 [slide]
-### 通过网格区域命名和定位网格项目
+### 通过网格区域命名和定位网格项目 (二)
 ```html
 像网格线名称一样，网格区域的名称也可以使用grid-template-areas属性来命名。
 引用网格区域名称也可以设置网格项目位置。
