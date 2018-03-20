@@ -726,14 +726,123 @@ item-b列的开始是2，
 [slide]
 ## 网格项目对齐方式（Box Alignment）
 
+```html
+justify-items和justify-self指定网格项目沿着行轴对齐方式；
+align-items和align-self指定网格项目沿着列轴对齐方式。
+```
+
+
+[slide]
+### 容器的属性
+
+> justify-items和align-items应用在网格容器上
+
+**它们的属性值有：**
+```css
+auto
+normal
+start
+end
+center
+stretch
+baseline
+first baseline
+last baseline
+```
+[demo](https://codepen.io/Frank_/pen/VXPQgQ?editors=1100)
+
+[slide]
+```css
+.container {
+  //定义在容器元素
+  //水平方向
+  // justify-items: start;
+  justify-items: center;
+  // justify-items: end;
+  // justify-items: stretch;
+  //垂直方向
+  // align-items: start;
+  align-items: center;
+  // align-items: end;
+  // align-items: stretch;
+}
+```
+<img class="br10" src="/img/c31.jpg">
+
+[demo](https://codepen.io/Frank_/pen/VXPQgQ?editors=1100)
+
+
+[slide]
+
+> align-self和justify-self属性用于网格项目自身对齐方式。
+
+**它们主要接受以下属性值：**
+```css
+auto
+normal
+start
+end
+center
+stretch
+baseline
+first baseline
+last baseline
+```
+
+[slide]
+
+**单个元素对齐方式**
+```css
+.item-a { 
+    justify-self: center;
+    align-self: center ;
+}
+```
+<img class="br10" src="/img/c32.jpg">
+
+[demo](https://codepen.io/Frank_/pen/OvWvGM?editors=1100)
 
 
 
+[slide]
+### 网格轨道对齐方式
+网格轨道对齐可以相对于网格容器行和列轴。
+```html
+align-content指定网格轨道沿着行轴对齐方式；
+justify-content指定网格轨道沿着列轴对齐方式。
+```
+**它们支持下面属性：**
+```css
+normal
+start
+end
+center
+stretch
+space-around
+space-between
+space-evenly
+baseline
+first baseline
+last baseline
+```
 
+[slide]
+```csss
+.container{
+  justify-content: start | center | end;
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: space-evenly;
+  
+  align-content: start | center | end;
+  align-content: space-around;
+  align-content: space-between;
+  align-content: space-evenly;
+}
+```
+<img class="br10" src="/img/c33.jpg">
 
-
-
-
+[demo](https://codepen.io/Frank_/pen/NYdMva?editors=1100)
 
 
 
@@ -743,10 +852,12 @@ item-b列的开始是2，
 [slide]
 ## <span class="yellow3">参考资料</span>
 
++ https://www.w3cplus.com/css/learncssgrid.html
 + http://www.css88.com/archives/8510
 + https://caniuse.com/#feat=css-grid
-+ https://www.w3cplus.com/css/learncssgrid.html
-+ yyy
++ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
++ https://css-tricks.com/snippets/css/complete-guide-grid/
++ https://gridbyexample.com/
 
 [slide]
 #完

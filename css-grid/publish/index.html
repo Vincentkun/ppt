@@ -667,15 +667,124 @@ item-b列的开始是2，
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>网格项目对齐方式（Box Alignment）</h2>
+<pre><code class="html">justify-items和justify-self指定网格项目沿着行轴对齐方式；
+align-items和align-self指定网格项目沿着列轴对齐方式。
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>容器的属性</h3>
+<blockquote>
+<p>justify-items和align-items应用在网格容器上</p>
+</blockquote>
+<p><strong>它们的属性值有：</strong></p>
+<pre><code class="css">auto
+normal
+start
+end
+center
+stretch
+baseline
+first baseline
+last baseline
+</code></pre>
+<p><a href="https://codepen.io/Frank_/pen/VXPQgQ?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="css">.container {
+  //定义在容器元素
+  //水平方向
+  // justify-items: start;
+  justify-items: center;
+  // justify-items: end;
+  // justify-items: stretch;
+  //垂直方向
+  // align-items: start;
+  align-items: center;
+  // align-items: end;
+  // align-items: stretch;
+}
+</code></pre>
+<img class="br10" src="./img/c31.jpg">
+<p><a href="https://codepen.io/Frank_/pen/VXPQgQ?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<blockquote>
+<p>align-self和justify-self属性用于网格项目自身对齐方式。</p>
+</blockquote>
+<p><strong>它们主要接受以下属性值：</strong></p>
+<pre><code class="css">auto
+normal
+start
+end
+center
+stretch
+baseline
+first baseline
+last baseline
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><strong>单个元素对齐方式</strong></p>
+<pre><code class="css">.item-a { 
+    justify-self: center;
+    align-self: center ;
+}
+</code></pre>
+<img class="br10" src="./img/c32.jpg">
+<p><a href="https://codepen.io/Frank_/pen/OvWvGM?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>网格轨道对齐方式</h3>
+<p>网格轨道对齐可以相对于网格容器行和列轴。</p>
+<pre><code class="html">align-content指定网格轨道沿着行轴对齐方式；
+justify-content指定网格轨道沿着列轴对齐方式。
+</code></pre>
+<p><strong>它们支持下面属性：</strong></p>
+<pre><code class="css">normal
+start
+end
+center
+stretch
+space-around
+space-between
+space-evenly
+baseline
+first baseline
+last baseline
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<pre><code class="csss">.container{
+  justify-content: start | center | end;
+  justify-content: space-around;
+  justify-content: space-between;
+  justify-content: space-evenly;
+
+  align-content: start | center | end;
+  align-content: space-around;
+  align-content: space-between;
+  align-content: space-evenly;
+}
+</code></pre>
+<img class="br10" src="./img/c33.jpg">
+<p><a href="https://codepen.io/Frank_/pen/NYdMva?editors=1100" target="_blank">demo</a></p>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2><span class="yellow3">参考资料</span></h2>
 <ul>
+<li><a href="https://www.w3cplus.com/css/learncssgrid.html" target="_blank">https://www.w3cplus.com/css/learncssgrid.html</a></li>
 <li><a href="http://www.css88.com/archives/8510" target="_blank">http://www.css88.com/archives/8510</a></li>
 <li><a href="https://caniuse.com/#feat=css-grid" target="_blank">https://caniuse.com/#feat=css-grid</a></li>
-<li><a href="https://www.w3cplus.com/css/learncssgrid.html" target="_blank">https://www.w3cplus.com/css/learncssgrid.html</a></li>
-<li>yyy</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout</a></li>
+<li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">https://css-tricks.com/snippets/css/complete-guide-grid/</a></li>
+<li><a href="https://gridbyexample.com/" target="_blank">https://gridbyexample.com/</a></li>
 </ul>
 
 </article></section></slide>
