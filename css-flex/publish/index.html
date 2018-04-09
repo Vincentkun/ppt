@@ -1,0 +1,796 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>flex - By kun</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.dark.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>CSS3 Flexbox</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank">垂直居中</a>就不容易实现。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<img class="br10" src="./img/c01.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>W3C提出的一种新的方案</h2>
+<h3>Flex布局，可以简便、完整、响应式地实现各种页面布局。</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>浏览器支持</h2>
+<img class="br10" src="./img/c02.jpg">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Flex</h1>
+<p>Flexible Box的缩写，意为&quot;弹性布局&quot;，
+用来为盒状模型提供最大的灵活性。</p>
+<pre><code class="html">任何一个容器都可以指定为Flex布局。
+</code></pre>
+<pre>
+    <code class="css">
+    .box{
+        display: flex;
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>「inline-flex」 与 inline-block</h3>
+<p><pre>
+    <code class="css pl30">
+    .flex,
+    .inline-flex{
+        width:100px;
+        height:50px;
+        border:1px solid #000;
+    }
+    .flex{
+        display:flex;
+    }
+    .inline-flex{
+        display:inline-flex;
+    }
+    </code>
+</pre></p>
+<iframe class="br10" style="width:300px" data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo1.html" src="about:blank;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3>Webkit内核的浏览器，必须加上<code>-webkit</code>前缀。</h3>
+<pre>
+    <code class="css pl10">
+    .box{
+        display: -webkit-flex; /* Safari */
+        display: flex;
+    }
+    </code>
+</pre>
+
+<blockquote>
+<p>注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<ul>
+<li>采用Flex布局的元素，称为Flex容器，简称&quot;容器&quot;</li>
+<li>它的所有子元素自动成为容器成员，称为Flex项目，简称&quot;项目&quot;</li>
+</ul>
+
+</hgroup><article>
+
+<img class="br10" src="./img/css09.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<blockquote>
+<p>flex布局发生在<code>父容器</code>和<code>子容器</code>之间。父容器需要有flex的环境(display:flex;)，子容器才能根据自身的属性来布局，简单的说，就是瓜分父容器的空间。相反就是说如果父容器没有flex的环境，那么子容器就无法使用flex的规则来划分父容器的空间。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<ul>
+<li>水平的主轴main axis和垂直的交叉轴（cross axis）</li>
+<li>主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end</li>
+<li>交叉轴的开始位置叫做cross start，结束位置叫做cross end</li>
+<li>项目默认沿主轴排列</li>
+<li>单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size</li>
+</ul>
+
+</hgroup><article>
+
+<img class="br10" src="./img/css10.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>容器的属性 &#91;<strong>6个</strong>&#93;</h2>
+
+</hgroup><article>
+
+<ul>
+<li><span class="green">flex-direction</span></li>
+<li><span class="green">flex-wrap</span></li>
+<li><span class="green3">flex-flow</span></li>
+<li><span class="blue">justify-content</span></li>
+<li><span class="blue">align-items</span></li>
+<li><span class="yellow">align-content</span></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>(A1) flex-direction</h2>
+<h3>「容器属性」决定主轴的方向（即项目的排列方向）</h3>
+<pre>
+    <code class="css pl10">
+    .box {
+        flex-direction: row | row-reverse | column | column-reverse;
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<ul>
+<li>row（默认值）：主轴为水平方向，起点在左端。</li>
+<li>row-reverse：主轴为水平方向，起点在右端。</li>
+<li>column：主轴为垂直方向，起点在上沿。</li>
+<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
+</ul>
+
+</hgroup><article>
+
+<img class="br10" src="./img/css12.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>Flex-direction Demo</h3>
+
+</hgroup><article>
+
+<p><pre>
+    <code class="css pl10">
+    .box {
+        flex-direction: row | row-reverse | column | column-reverse;
+    }
+    </code>
+</pre></p>
+<p><iframe style="height:160px" class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo2.html"></iframe>
+<a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo2.html" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>(A2) flex-wrap</h2>
+<h3>「容器属性」定义如果一条轴线排不下，如何换行</h3>
+<p>[默认情况下，项目都排在一条轴线上]
+可取<strong>3</strong>个值</p>
+<p><pre>
+    <code class="css pl10">
+        .box{
+            flex-wrap: nowrap | wrap | wrap-reverse;
+        }
+    </code>
+</pre>
+<img class="br10" src="./img/c03.png"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>（1）nowrap（默认）：不换行</h3>
+
+</hgroup><article>
+
+<img class="br10"  src="./img/c04.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>(2）wrap：换行，第一行在上方</h3>
+
+</hgroup><article>
+
+<img class="br10"  src="./img/c05.jpg">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>(3) wrap-reverse：换行，第一行在下方</h3>
+
+</hgroup><article>
+
+<img class="br10"  src="./img/c06.jpg">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo7.html" target="_blank">demo</a>  </p>
+<div class="columns-2">
+    <pre>
+        <code class="css pl10">
+            .nowrap{
+                flex-wrap:nowrap;
+            }
+            .wrap{
+                flex-wrap:wrap;
+            }
+            .wrap-reverse{
+                flex-wrap:wrap-reverse;
+            }
+        </code>
+    </pre>
+    <iframe class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo7.html"></iframe>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>(A3) flex-flow</h2>
+<h3>「容器属性」是flex-direction和flex-wrap的简写形式</h3>
+<p>[默认值为<strong>row</strong> <strong>nowrap</strong>]</p>
+<pre>
+    <code class="css pl10">
+        .box{
+            flex-flow: flex-direction || flex-wrap;
+        }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>(A4) justify-content</h2>
+<h3>「容器属性」定义了项目在主轴上的对齐方式</h3>
+<pre>
+    <code class="css pl10">
+        .box {
+            justify-content: flex-start | flex-end | center | space-between | space-around;
+        }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>它可能取<strong>5</strong>个值，具体对齐方式与<strong>轴的方向</strong>有关</h2>
+
+</hgroup><article>
+
+<ul>
+<li>flex-start（默认值）：左对齐</li>
+<li>flex-end：右对齐</li>
+<li>center： 居中</li>
+<li>space-between：两端对齐，项目之间的间隔都相等</li>
+<li>space-around：每个项目两侧的间隔相等，所以项目之间的间隔比项目与边框的间隔大一倍</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>[下面假设主轴<strong>从左到右</strong>]</h2>
+<img class="br10" src="./img/c07.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo3.html" target="_blank">demo</a>  </p>
+<div class="columns-2">
+    <pre>
+        <code class="css pl10">
+            .flex-start{
+                justify-content:flex-start;
+            }
+            .flex-end{
+                justify-content:flex-end;
+            }
+            .center{
+                justify-content:center;
+            }
+            .space-between{
+                justify-content:space-between;
+            }
+            .space-around{
+                justify-content:space-around;
+            }
+        </code>
+    </pre>
+    <iframe class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo3.html"></iframe>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>(A5) align-items</h2>
+<h3>「容器属性」定义项目在交叉轴上如何对齐</h3>
+<pre>
+    <code class="css pl10">
+        .box {
+            align-items: flex-start | flex-end | center | baseline | stretch;
+        }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>它可能取<strong>5</strong>个值，具体对齐方式与<strong>交叉轴</strong>有关</h2>
+
+</hgroup><article>
+
+<ul>
+<li>flex-start：交叉轴的起点对齐</li>
+<li>flex-end：交叉轴的终点对齐</li>
+<li>center：交叉轴的中点对齐</li>
+<li>baseline: 项目的第一行文字的基线对齐</li>
+<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>[下面假设交叉轴<strong>从上到下</strong>]</h2>
+<img class="br10" src="./img/c08.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><pre>
+<code class="css">
+    .box {
+        align-items: flex-start | flex-end | center | stretch | baseline;
+    }
+</code>
+</pre></p>
+<p><iframe class="br10" style="height:200px"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo4.html"></iframe>
+<a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo4.html" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(A6) align-content</h2>
+<h3>「容器属性」定义了多根轴线的对齐方式</h3>
+
+</hgroup><article>
+
+<h5><strong>[如果项目只有一根轴线，该属性不起作用]</strong></h5>
+<pre>
+    <code class="css pl10">
+        .box {
+           align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+        }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>它可能取<strong>6</strong>个值</h2>
+<ul>
+<li>flex-start：与交叉轴的起点对齐</li>
+<li>flex-end：与交叉轴的终点对齐</li>
+<li>center：与交叉轴的中点对齐</li>
+<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布</li>
+<li>space-around：每根轴线两侧的间隔都相等,所以轴线之间的间隔比轴线与边框的间隔大一倍</li>
+<li>stretch（默认值）：轴线占满整个交叉轴</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3><span class="text-danger">如果项目只有一根轴线，该属性不起作用</span></h3>
+
+</hgroup><article>
+
+<img class="br10" src="./img/c09.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p><pre>
+<code class="css">
+    .box {
+        align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    }
+</code>
+</pre></p>
+<p><iframe class="br10" style="height:400px"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo6.html"></iframe>
+<a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo6.html" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>项目的属性 &#91;<strong>6个</strong>&#93;</h2>
+
+</hgroup><article>
+
+<ul>
+<li><span class="blue">order</span></li>
+<li><span class="green2">flex-grow</span></li>
+<li><span class="green2">flex-basis</span></li>
+<li><span class="green2">flex-shrink</span></li>
+<li><span class="text-success">flex</span></li>
+<li><span class="yellow">align-self</span></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B1) order</h2>
+<h3>「项目属性」定义项目的排列顺序</h3>
+
+</hgroup><article>
+
+<pre>
+    <code class="css pl30">
+    .item {
+        order: 1;
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>[<strong>数值越小,排列越靠前，默认为0</strong>]</h3>
+
+</hgroup><article>
+
+<img class="br10" src="./img/css34.png">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>order Demo</h3>
+
+</hgroup><article>
+
+<p><a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo8.html" target="_blank">demo</a></p>
+<div class="columns-2">
+    <pre>
+        <code class="css pl10">
+        .order1{
+            order:1;
+            background:#c00;
+        }
+        .order2{
+            order:2;
+            background:#069;
+        }
+        .order3{
+            order:3;
+            background:#095;
+        }
+        </code>
+    </pre>
+    <iframe style="height:160px;margin-top:120px" class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo8.html"></iframe>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B2) flex-grow</h2>
+<h3>「项目属性」定义项目的放大比例</h3>
+
+</hgroup><article>
+
+<h4>[<strong>默认为0,即如果存在剩余空间，也不瓜分</strong>]</h4>
+<p><pre>
+    <code class="css pl25">
+    .item {
+        flex-grow: 0; /<em> default 0 </em>/
+    }
+    </code>
+</pre>
+<img class="br10" src="./img/css37.png"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>flex-grow Demo</h3>
+
+</hgroup><article>
+
+<div class="columns-2">
+    <p style="font-size: 18px;text-align:left;">如果所有项目的flex-grow属性都为1，<br>则它们将等分剩余空间（如果有的话）</p>
+    <p style="font-size: 18px;text-align:left;">如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍</p>
+</div><p><pre>
+    <code class="css pl10">
+    .item {
+        flex-grow: 0; /<em> default 0 </em>/
+    }
+    </code></p>
+<h2></pre></h2>
+<p><a href="https://codepen.io/Frank_/pen/EmEPQm?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B3) flex-basis</h2>
+<h3>「项目属性」定义了在分配多余空间之前，项目占据的主轴空间（main size）</h3>
+<h3>[<strong>浏览器根据这个属性，计算主轴是否有多余空间</strong>]</h3>
+
+</hgroup><article>
+
+<h4>[<strong>它的默认值为auto，即项目的本来大小</strong>]</h4>
+<pre>
+    <code class="css pl25">
+    .item {
+        flex-basis: 1 | auto; /* default auto */
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>flex-basis Demo</h3>
+
+</hgroup><article>
+
+<h4>[<strong>我们通过案例来解释</strong>]</h4>
+<p><pre>
+    <code class="css pl10">
+    .item {
+        flex-basis: 1 | auto; /<em> default auto </em>/
+    }
+    </code></p>
+<h2></pre></h2>
+<p><a href="https://codepen.io/Frank_/pen/VbXjxm?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<blockquote>
+<p>上面讲的<span class="green">flex-grow</span>、<span class="green">flex-basis</span>都是剩余空间的分配。但是，你有没有想过还有没有其他的情况呢？可以发现，上面讲的例子item1 item2 item3的宽度总和都是<code>没有超过</code>父容器的宽度的。 那如果三个子容器的<code>宽度和超过</code>父容器的宽度呢？那还有剩余空间可以分配吗，此时浏览器又是怎么处理呢？请看下面：</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B4) flex-shrink</h2>
+<h3>「项目属性」定义了项目的缩小比例，默认为1</h3>
+
+</hgroup><article>
+
+<h4>[<strong>即如果空间不足，该项目将缩小</strong>]</h4>
+<pre>
+    <code class="css pl25">
+    .item {
+        flex-shrink: 1; /* default 1 */
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>flex-shrink Demo</h3>
+
+</hgroup><article>
+
+<h4>[<strong>不太好理解 我们通过案例来解释</strong>]</h4>
+<p><pre>
+    <code class="css pl10">
+    .item {
+        flex-grow: 1; /<em> default 0 </em>/
+    }
+    </code></p>
+<h2></pre></h2>
+<p><a href="https://codepen.io/Frank_/pen/LydNrv?editors=1100" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B5) flex</h2>
+<h3>「项目属性」简写，默认值为: <strong>0 1 auto</strong></h3>
+<h3><span class="green">flex-grow</span>,<span class="green">flex-shrink</span> 和 <span class="green">flex-basis</span></h3>
+<h3>[<strong>后两个属性可选</strong>]</h3>
+
+</hgroup><article>
+
+<pre>
+    <code class="css pl20">
+    .item {
+        flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>该属性有两个快捷值</h3>
+
+</hgroup><article>
+
+<p><pre>
+    <code class="css pl20">
+    .item {
+        flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]
+    }
+    </code>
+</pre></p>
+<ul>
+<li><span class="yellow">auto</span> <span class="green">(1 1 auto)</span></li>
+<li><span class="yellow">none</span> <span class="green">(0 0 auto)</span></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>flex Demo</h3>
+
+</hgroup><article>
+
+<h4>[<strong>建议优先使用这个属性,因为浏览器会推算相关值</strong>]</h4>
+<p><pre>
+    <code class="css pl10">
+    .item {
+        flex: &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt; &lt;&#39;flex-basis&#39;&gt;
+    }
+    .item1{
+        flex:1 2 200px;
+        background:#c00;
+    }
+    .item2{
+        flex:2 1 100px;
+        background:#069;
+    }
+    </code>
+</pre></p>
+<p><iframe style="height:160px;" class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo9.html"></iframe>
+<a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo9.html" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>(B6) align-self</h2>
+<h3>「项目属性」允许单个项目有与其他项目不一样的对齐方式</h3>
+<h3>[<strong>可覆盖align-items属性</strong>]</h3>
+
+</hgroup><article>
+
+<pre><code class="html">默认值为 auto, 表示继承父元素的align-items属性
+
+如果没有父元素，则等同于stretch
+</code></pre>
+<pre>
+    <code class="css pl0">
+    .item {
+        align-self: auto | flex-start | flex-end | center | baseline | stretch;
+    }
+    </code>
+</pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h3><span class="text-danger">可取6个值，除了auto，其他都与align-items属性完全一致</span></h3>
+<p><pre>
+    <code class="css pl0">
+    .item {
+        align-self: auto | flex-start | flex-end | center | baseline | stretch;
+    }
+    </code>
+</pre>
+<img class="br10" src="./img/css46.png"></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h3>align-self Demo</h3>
+
+</hgroup><article>
+
+<h4>[<strong>建议优先使用这个属性,因为浏览器会推算相关值</strong>]</h4>
+<p><pre>
+    <code class="css pl10">
+    .item2{
+        align-self:baseline;
+        line-height: 30px;
+        background:#095;
+    }
+    </code>
+</pre></p>
+<p><iframe style="height:160px;" class="br10"  data-src="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo5.html"></iframe>
+<a href="http://www.oxxostudio.tw/demo/201501/css-flexbox-demo5.html" target="_blank">demo</a></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<div class="columns-2">
+<pre>
+<code class="markdown">
+> 容器的属性 &#91;6个&#93;
+
+* flex-direction
+* flex-wrap
+* flex-flow
+* justify-content
+* align-items
+* align-content
+</code>
+</pre>
+<pre>
+<code class="markdown">
+> 项目的属性 &#91;6个&#93; 
+
+* order
+* flex-grow
+* flex-basis
+* flex-shrink
+* flex
+* align-self
+</code>
+</pre>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2><span class="yellow3">参考资料</span></h2>
+<ul>
+<li><a href="http://www.oxxostudio.tw/articles/201501/css-flexbox.html" target="_blank">http://www.oxxostudio.tw/articles/201501/css-flexbox.html</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></li>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>完</h1>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<link rel="stylesheet" href="./css/style.css">
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

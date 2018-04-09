@@ -896,7 +896,7 @@ last baseline
 ```
 
 [slide]
-```csss
+```css
 .container{
   justify-content: start | center | end;
   justify-content: space-around;
@@ -924,6 +924,7 @@ last baseline
 + https://www.w3cplus.com/css/learncssgrid.html
 + http://www.css88.com/archives/8510
 + https://caniuse.com/#feat=css-grid
++ https://www.w3cplus.com/css3/how-the-minmax-function-works.html?utm_source=tuicool&utm_medium=referral
 + https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 + https://css-tricks.com/snippets/css/complete-guide-grid/
 + https://gridbyexample.com/

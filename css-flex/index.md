@@ -13,7 +13,7 @@ files: /css/style.css
 布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，[垂直居中](https://css-tricks.com/centering-css-complete-guide/)就不容易实现。
 
 [slide]
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071002.png">
+<img class="br10" src="/img/c01.png">
 
 
 [slide]
@@ -23,7 +23,7 @@ files: /css/style.css
 
 [slide]
 ##浏览器支持
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071003.jpg">
+<img class="br10" src="/img/c02.jpg">
 
 [slide]
 
@@ -158,23 +158,23 @@ Flexible Box的缩写，意为"弹性布局"，
         }
     </code>
 </pre>
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071006.png">
+<img class="br10" src="/img/c03.png">
 
 [slide]
 ###（1）nowrap（默认）：不换行
 ---
-<img class="br10"  src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071007.png">
+<img class="br10"  src="/img/c04.png">
 
 
 [slide]
 ### (2）wrap：换行，第一行在上方
 ---
-<img class="br10"  src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071008.jpg">
+<img class="br10"  src="/img/c05.jpg">
 
 [slide]
 ### (3) wrap-reverse：换行，第一行在下方
 ---
-<img class="br10"  src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071009.jpg">
+<img class="br10"  src="/img/c06.jpg">
 
 [slide]
 [demo](http://www.oxxostudio.tw/demo/201501/css-flexbox-demo7.html)  
@@ -231,7 +231,7 @@ Flexible Box的缩写，意为"弹性布局"，
 
 [slide]
 ##[下面假设主轴**从左到右**]
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071010.png">
+<img class="br10" src="/img/c07.png">
 
 [slide]
 [demo](http://www.oxxostudio.tw/demo/201501/css-flexbox-demo3.html)  
@@ -281,7 +281,7 @@ Flexible Box的缩写，意为"弹性布局"，
 
 [slide]
 ##[下面假设交叉轴**从上到下**]
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071011.png">
+<img class="br10" src="/img/c08.png">
 
 [slide]
 <pre>
@@ -321,7 +321,7 @@ Flexible Box的缩写，意为"弹性布局"，
 [slide]
 ### <span class="text-danger">如果项目只有一根轴线，该属性不起作用</span>
 ---
-<img class="br10" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071012.png">
+<img class="br10" src="/img/c09.png">
 
 
 [slide]
