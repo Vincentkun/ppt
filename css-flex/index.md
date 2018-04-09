@@ -1,5 +1,5 @@
-title: flex
-speaker: kun
+title: css3-flex
+speaker: 城池
 transition: slide3
 theme: dark
 usemathjax: yes
