@@ -1,5 +1,5 @@
-title: grid
-speaker: kun
+title: css3-grid
+speaker: 城池
 transition: slide3
 theme: moon
 usemathjax: yes
